@@ -65,8 +65,11 @@ function filterFriends(e) {
     var friends = friendList.getElementsByTagName('li');
     //Convert to an array
     Array.from(friends).forEach(function (friend) {
+        // gives list of the item name as we type in search form
         var friendName = friend.firstChild.textContent;
-        if (friendName.toLowerCase().indexOf(text) != -1) {     //if not equal to -1 it's a match
+        // The indexOf() method returns the position of the first occurrence of a specified value in a string.
+        // This method returns -1 if the value to search for never occurs
+        if (friendName.toLowerCase().indexOf(text) != -1) {     // if not equal to -1 it's a match
             friend.style.display = 'block';
         } else {
             friend.style.display = 'none';
