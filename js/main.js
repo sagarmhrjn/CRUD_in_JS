@@ -4,14 +4,14 @@ var filter = document.getElementById('filter');
 // Form Submit Event
 form.addEventListener('submit', addFriend);
 
-// Edit Event
-friendList.addEventListener('click', editFriend);
-
 //Delete Event
 friendList.addEventListener('click', removeFriend);
 
 //Filter Event
 filter.addEventListener('keyup', filterFriends);
+
+
+let editValue = "";
 
 //Add a friend
 function addFriend(e) {
@@ -23,47 +23,54 @@ function addFriend(e) {
 
     // Create new li element
     var li = document.createElement('li');
-
     //Add class to li
     li.className = 'list-group-item';
 
-    //Add text node with input value
-    li.appendChild(document.createTextNode(newFriend));
+    let friendSpan = document.createElement('span')
+    friendSpan.id = newFriend;
+    friendSpan.innerHTML = newFriend
 
-
-    // Create edit button element
-    var editBtn = document.createElement('button');
-
-    //Add Class to del button
-    editBtn.className = "btn btn-primary mr-1 btn-sm float-right edit";
-
-    //Append text node
-    editBtn.appendChild(document.createTextNode('Edit'));
-
+    // Append text to li
+    li.appendChild(friendSpan);
 
     // Create del button element
     var deleteBtn = document.createElement('button');
-
     //Add Class to del button
     deleteBtn.className = "btn btn-danger btn-sm float-right delete";
-
     //Append text node
     deleteBtn.appendChild(document.createTextNode('Delete'));
-
     //Append button to li
     li.appendChild(deleteBtn);
+
+
+    // Create edit button
+    let editBtn = document.createElement('button');
+    // Add class to edit button
+    editBtn.className = "btn btn-primary mr-1 btn-sm float-right edit";
+    // Add text node to button
+    editBtn.appendChild(document.createTextNode('Edit'));
+    editBtn.onclick = () => {
+        document.getElementById('editForm').style.display = 'block';
+        document.getElementById('addForm').style.display = 'none';
+        document.getElementById("title").innerHTML = "Edit a Friend"
+        document.getElementById('editFriend').value = newFriend;
+        editValue = newFriend;
+    }
     li.appendChild(editBtn);
 
     //Append li to list
     friendList.appendChild(li);
 
-
+    document.getElementById('friend').value = '';
 }
 
-// Edit a friend
-function editFriend(e) {
-    console.log(e);
-};
+const editTest = () => {
+    document.getElementById('editForm').style.display = 'none';
+    document.getElementById('addForm').style.display = 'block';
+    document.getElementById(editValue).innerHTML = document.getElementById('editFriend').value;
+    document.getElementById('editFriend').value = '';
+    editValue = null;
+}
 
 //Remove a friend
 function removeFriend(e) {

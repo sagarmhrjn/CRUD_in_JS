@@ -2,69 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Crud in JS</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Crud in JS</title>
 
-    <!-- Bootstrap -->
-    <link href="css\bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet icon" href="img/js.ico" title="Favicon">
+  <!-- Bootstrap -->
+  <link href="css\bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet icon" href="img/js.ico" title="Favicon">
 
+  <style>
+    #editForm {
+      display: none;
+    }
+    
+    #addForm {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
-    <header id="main-header" class="bg-danger text-white p-4 mb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 id="header-title">Friends List</h1>
-                </div>
-                <div class="col-md-6 align-self-center">
-                    <input type="text" class="form-control" id="filter" placeholder="Search Friends...">
-                </div>
-            </div>
-        </div>
-    </header>
-
+  <header id="main-header" class="bg-danger text-white p-4 mb-3">
     <div class="container">
-        <h5 class="text-muted m-4"><em>Simple Friend lister project where we can add a name of a person with a form,
-                delete them and filter through them all with vanilla JavaScript and DOM properties and methods.</em></h3>
-            <div id="main" class="card card-body">
-                <h2 class="title">Add a friend</h2>
-                <form id="addForm" class="form-inline mb-3">
-                    <input type="text" class="form-control mr-2" id="friend">
-                    <input type="submit" class="btn btn-primary" value="Submit">
-                </form>
-                <h2 class="title">Friends</h2>
-                <ul id="friends" class="list-group">
-                    <li class="list-group-item">Sagar
-                        <button class="btn btn-danger btn-sm float-right delete">Delete</button>
-                        <button class="btn btn-primary mr-1 btn-sm float-right edit">Edit</button>
-                    </li>
-                    <li class="list-group-item">Azay
-                        <button class="btn btn-danger btn-sm float-right delete">Delete</button>
-                        <button class="btn btn-primary mr-1 btn-sm float-right edit">Edit</button>
-                    </li>
-                    <li class="list-group-item">Rikee
-                        <button class="btn btn-danger btn-sm float-right delete">Delete</button>
-                        <button class="btn btn-primary mr-1 btn-sm float-right edit">Edit</button>
-                    </li>
-                    <li class="list-group-item">Mukesh
-                        <button class="btn btn-danger btn-sm float-right delete">Delete</button>
-                        <button class="btn btn-primary mr-1 btn-sm float-right edit">Edit</button>
-                    </li>
-                </ul>
-            </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 id="header-title">Friends List</h1>
+        </div>
+        <div class="col-md-6 align-self-center">
+          <input type="text" class="form-control" id="filter" placeholder="Search Friends...">
+        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="footer">
-        <p>Copyright &copy; <a href="https://github.com/tetrachromat">Sagar Mhrjn</a></p>
-    </div>
+  <div class="container">
+    <h5 class="text-muted m-4"><em>Simple Friend lister project where we can add a name of a person with a form,
+        delete them and filter through them all with vanilla JavaScript and DOM properties and methods.</em></h3>
+      <div id="main" class="card card-body">
+        <h2 id="title">Add a friend</h2>
+        <form id="addForm" class="form-inline mb-3">
+          <input type="text" class="form-control mr-2" id="friend">
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
 
-    <script src="js\main.js"></script>
+        <form id="editForm" class="form-inline mb-3">
+          <input type="text" class="form-control mr-2" id="editFriend">
+          <input type="button" class="btn btn-primary" onclick="editTest()" value="Edit">
+        </form>
+        <h2 class="title">Friends</h2>
+        <ul id="friends" class="list-group">
+        </ul>
+      </div>
+  </div>
+
+  <div class="footer">
+    <p>Copyright &copy; <a href="https://github.com/tetrachromat">Sagar Mhrjn</a></p>
+  </div>
+
+  <script src="js\main.js"></script>
 </body>
 
 </html>
