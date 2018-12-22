@@ -4,6 +4,9 @@ var filter = document.getElementById('filter');
 // Form Submit Event
 form.addEventListener('submit', addFriend);
 
+// Edit Event
+friendList.addEventListener('click', editFriend);
+
 //Delete Event
 friendList.addEventListener('click', removeFriend);
 
@@ -27,6 +30,17 @@ function addFriend(e) {
     //Add text node with input value
     li.appendChild(document.createTextNode(newFriend));
 
+
+    // Create edit button element
+    var editBtn = document.createElement('button');
+
+    //Add Class to del button
+    editBtn.className = "btn btn-primary mr-1 btn-sm float-right edit";
+
+    //Append text node
+    editBtn.appendChild(document.createTextNode('Edit'));
+
+
     // Create del button element
     var deleteBtn = document.createElement('button');
 
@@ -38,12 +52,18 @@ function addFriend(e) {
 
     //Append button to li
     li.appendChild(deleteBtn);
+    li.appendChild(editBtn);
 
     //Append li to list
     friendList.appendChild(li);
 
 
 }
+
+// Edit a friend
+function editFriend(e) {
+    console.log(e);
+};
 
 //Remove a friend
 function removeFriend(e) {
